@@ -19,22 +19,23 @@ SECTION MBR vstart=0x7c00
 
 	
 	
-	int 0x10
-	mov byte [gs:0x00],'r'
-	mov byte [gs:0x01],0xa4
-	mov byte [gs:0x02],'u'
-	mov byte [gs:0x03],0xa4
-	mov byte [gs:0x04],'n'
-	mov byte [gs:0x05],0xa4
-	mov byte [gs:0x06],' '
-	mov byte [gs:0x07],0xa4
-	mov byte [gs:0x08],'M'
-	mov byte [gs:0x09],0xa4
-	mov byte [gs:0x0a],'B'
-	mov byte [gs:0x0b],0xa4
-	mov byte [gs:0x0c],'R'
-	mov byte [gs:0x0d],0xa4
-	
+;	int 0x10
+;	mov byte [gs:0x00],'r'
+;	mov byte [gs:0x01],0xa4
+;	mov byte [gs:0x02],'u'
+;	mov byte [gs:0x03],0xa4
+;	mov byte [gs:0x04],'n'
+;	mov byte [gs:0x05],0xa4
+
+;	mov byte [gs:0x06],' '
+;	mov byte [gs:0x07],0xa4
+;	mov byte [gs:0x08],'M'
+;	mov byte [gs:0x09],0xa4
+;	mov byte [gs:0x0a],'B'
+;	mov byte [gs:0x0b],0xa4
+;	mov byte [gs:0x0c],'R'
+;	mov byte [gs:0x0d],0xa4
+
 	mov eax,LOADER_START_SECTOR;起始扇区lba地址
 	mov bx,LOADER_BASE_ADDR;place to write
 	mov cx,4;number ro write//2.24change from 1 into 4 
