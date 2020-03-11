@@ -9,6 +9,9 @@ build/main.o \
 build/interrupt.o \
 build/print.o \
 build/kernel.o \
+build/timer.o \
+build/debug.o \
+build/string.o
 #build/interrupt.o \
 #build/kernel.o \
 
@@ -24,6 +27,13 @@ build/print.o: kernel/inc/print.S
 build/interrupt.o: kernel/src/interrupt.c
 	gcc -m32 -I kernel/inc -I kernel/src -c -fno-builtin -fno-stack-protector -o  build/interrupt.o kernel/src/interrupt.c
 	#gcc -m32 -I ../inc -c -fno-builtin -o interrupt.o interrupt.c
+build/timer.o: kernel/src/timer.c
+	gcc -m32 -I kernel/inc -I kernel/src -c -fno-builtin -fno-stack-protector -o build/timer.o kernel/src/timer.c
+build/debug.o: kernel/src/debug.c
+	gcc -m32 -I kernel/inc -I kernel/src -c -fno-builtin -fno-stack-protector -o build/debug.o kernel/src/debug.c
+
+build/string.o: kernel/src/string.c
+	gcc -m32 -I kernel/inc -I kernel/src -c -fno-builtin -fno-stack-protector -o build/string.o kernel/src/string.c
 
 build/main.o: kernel/main.c
 	gcc -m32 -I kernel/inc  -c -fno-builtin -o build/main.o kernel/main.c
