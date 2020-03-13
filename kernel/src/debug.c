@@ -3,7 +3,7 @@
 # include "interrupt.h"
 
 void panic_spin(char* filename, int line, const char* func, const char* condition) {
-    disable_intr();
+    intr_disable();
 
     put_str("Something wrong...");
     

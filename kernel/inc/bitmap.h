@@ -1,3 +1,6 @@
+#ifndef _LIB_KERNEL_BITMAP_H
+#define _LIB_KERNEL_BITMAP_H
+
 # include "global.h"
 
 # define BITMAP_MASK 1
@@ -14,3 +17,5 @@ int bitmap_scan_test(struct bitmap* btmap, uint32_t bit_idx);
 int bitmap_scan(struct bitmap* btmap, uint32_t cnt);
 
 void bitmap_set(struct bitmap* btmap, uint32_t index, int8_t value);
+
+#endif

@@ -10,6 +10,7 @@ uint32_t strlen(const char *str)
     else
         return strlen(str + 1) + 1;
 }
+
 //复制
 char *strcpy(char *dest, const char *src)
 {
@@ -19,7 +20,6 @@ char *strcpy(char *dest, const char *src)
       while (*dest++ = *src++) ;
       return res;
 }
-
 
 
 //比较大小
@@ -106,8 +106,8 @@ char* strncpy(char* dest, const char* src, uint32_t len)
 char* strncat(char* dest, const char* src, uint32_t len)
 {
     char* res = dest;
-    assert(dest);
-    assert(src);
+    ASSERT(dest);
+    ASSERT(src);
     while (*dest != '\0')
         dest++;
     while (len--)
@@ -121,8 +121,8 @@ char* strncat(char* dest, const char* src, uint32_t len)
 
 int8_t strncmp(const char* s1, const char* s2, uint32_t len)
 {
-    assert(s1);
-    assert(s2);
+    ASSERT(s1);
+    ASSERT(s2);
     while (len--)
     {
         if (*s1 == *s2)
@@ -138,17 +138,26 @@ int8_t strncmp(const char* s1, const char* s2, uint32_t len)
 
 
 //memset():把指定内存区域的前count个字节设置成字符c
-void * memset(void* buffer, uint8_t c, uint32_t count)
+
+void  memset(void* buffer, uint8_t c, uint32_t count)
 {
-    assert(buffer != NULL);
-    char * p = (char *)buffer;
-    while(count--)
-        *p++ = (char)c;
-    return buffer;
+    ASSERT(buffer != NULL);
+    char * p = (uint8_t *)buffer;
+    put_str("halo\n");
+    while(count-- >0)
+        *p++ = c;
+    //return buffer;
 }
+/*
+void memset(void* buffer, uint8_t c, uint32_t count) {
+    ASSERT(buffer != NULL);
 
-
-
+    uint8_t* addr = (uint8_t*) buffer;
+    while (count-- > 0) {
+        *addr++ = c;
+    }
+}
+*/
 
 void * memcpy(void *dest,void *src,uint32_t count )
 {
@@ -170,8 +179,8 @@ char* memmove(char* dest, const char* src, uint32_t len)
 {
 	char* ret = dest;
 	int offset = 0;
-	assert(dest != NULL);
-	assert(src != NULL);
+	ASSERT(dest != NULL);
+	ASSERT(src != NULL);
 	if(len > strlen(src))  //当len大于strlen(src)时
 	{
 		offset = len - strlen(src);
@@ -214,8 +223,8 @@ char* memmove(char* dest, const char* src, uint32_t len)
 
 int memcmp(const char* dest, const char* src, uint32_t len)
 {
-	assert(dest != NULL);
-	assert(src != NULL);
+	ASSERT(dest != NULL);
+	ASSERT(src != NULL);
 	while(len--)
 	{
 		while(*dest++ == *src++)

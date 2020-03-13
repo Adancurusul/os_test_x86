@@ -26,8 +26,8 @@ SELECTOR_CODE equ (0x0001<<3) + TI_GDT + RPL0         ; 相当于(CODE_DESC - GD
 SELECTOR_DATA equ (0x0002<<3) + TI_GDT + RPL0	 ; 同上
 SELECTOR_VIDEO equ (0x0003<<3) + TI_GDT + RPL0	 ; 同上 
 ;此处之前为（60+4）*8=512 0x200
-;0x200+0x900 = 0xb00
-total_mem_bytes dd 0;0xb00
+;0x200+0x900 = 0xb03
+total_mem_bytes dd 0;0xb03
 
 gdt_ptr dw GDT_LIMIT
     dd GDT_BASE;初始化gdt的指针 47-15 内存起始地址base 15-0 limit

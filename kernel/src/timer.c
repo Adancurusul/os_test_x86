@@ -1,23 +1,31 @@
-#include "timer.h"
-#include "io.h"
-#include "print.h"
-#include "stdint.h"
+# include "io.h"
+# include "print.h"
 
-/*
-void set_frequency(uint8_t port,uint8_t counter_number,uint8_t read_write_latch,uint8_t mode_to_count ,uint16_t counter_value){
-    //write control word into 0x43
-    outb(PIT_PORT,(uint8_t)(counter_number<<6|read_write_latch<<4|mode_to_count<<1));
-    outb(port,(uint8_t)counter_value);//low 8bits
-    outb(port,(uint8_t)counter_value>>8);//high
+# define IRQ0_FREQUENCY 1000
+# define INPUT_FREQUENCY 1193180
+# define COUNTER0_VALUE INPUT_FREQUENCY / IRQ0_FREQUENCY
+# define COUNTER0_PORT 0x40
+# define COUNTER_MODE 2
+# define COUNTER0_NO 0
+# define READ_WRITE_LATCH 3
+# define PIT_CONTROL_PORT 0x43
+
+
+static void frequency_set(uint8_t counter_port,
+                          uint8_t counter_no,
+                          uint8_t rwl,
+                          uint8_t counter_mode,
+                          uint16_t counter_value) {
+    outb(PIT_CONTROL_PORT, (uint8_t) (counter_no << 6 | rwl << 4 | counter_mode << 1));
+    outb(counter_port, (uint8_t) counter_value);
+    outb(counter_port, (uint8_t) counter_value >> 8);
 }
-*/
 
-void timer_init(){
-    put_str("start to init timer\n");
-        //write control word into 0x43
-    outb(PIT_PORT,(uint8_t)(COUNTER_NUMBER<<6|READ_WRITE_LATCH<<4|MODE_TO_COUNT<<1));
-    outb(PORT,(uint8_t)COUNTER_VALUE);//low 8bits
-    outb(PORT,(uint8_t)COUNTER_VALUE>>8);//high
-    put_str("timer init successully\n");
-
+/**
+ * 初始化PIT 8253.
+ */ 
+void timer_init() {
+    put_str("timer_init start.\n");
+    frequency_set(COUNTER0_PORT, COUNTER0_NO, READ_WRITE_LATCH, COUNTER_MODE, COUNTER0_VALUE);
+    put_str("timer_init done.\n");
 }
