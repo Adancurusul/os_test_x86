@@ -5,6 +5,7 @@
 ; 如果CPU没有压入错误码，为了保持处理逻辑的一致性，我们需要手动压入一个0
 %define ZERO push 0
 
+
 extern put_str
 ; 中断处理函数数组
 extern idt_table

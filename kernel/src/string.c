@@ -1,6 +1,7 @@
 #include "string.h"
 #include "global.h"
 #include "stdint.h"
+#include "print.h"
 
 //长度
 uint32_t strlen(const char *str)
@@ -143,7 +144,7 @@ void  memset(void* buffer, uint8_t c, uint32_t count)
 {
     ASSERT(buffer != NULL);
     char * p = (uint8_t *)buffer;
-    put_str("halo\n");
+    
     while(count-- >0)
         *p++ = c;
     //return buffer;

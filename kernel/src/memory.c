@@ -230,7 +230,7 @@ void* get_kernel_pages(uint32_t page_count) {
 
 void mem_init(void) {
     put_str("Init memory start.\n");
-    uint32_t total_memory = (*(uint32_t*) (0xb00));
+    uint32_t total_memory = (*(uint32_t*) (0xb03));
     mem_pool_init(total_memory);
     put_str("Init memory done.\n");
 }

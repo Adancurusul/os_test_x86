@@ -1,0 +1,34 @@
+{
+	"folders": [
+		{
+			"path": "D:\\codes\\python"
+		},
+		{
+			"name": "gd32v",
+			"path": "C:\\Users\\User\\Documents\\PlatformIO\\Projects\\gd32v"
+		},
+		{
+			"name": "32test",
+			"path": "C:\\Users\\User\\Documents\\PlatformIO\\Projects\\32test"
+		},
+		{
+			"path": "C:\\Users\\User\\.platformio"
+		},
+		{
+			"name": "gd",
+			"path": "C:\\Users\\User\\Documents\\PlatformIO\\Projects\\gd"
+		},
+		{
+			"path": "D:\\linux\\os_test"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"stdint.h": "c",
+			"interrupt.h": "c",
+			"timer.h": "c",
+			"print.h": "c",
+			"debug.h": "c"
+		}
+	}
+}
